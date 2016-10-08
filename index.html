@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Logos - BdE INSA Lyon</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <style>
+        #header {
+            margin-top: 3em;
+        }
+        #sign {
+            margin: 2em auto;
+            width: 500px;
+            border: solid 1px #DDD;
+        }
+    </style>
+
+
+    <link data-require="intl-tel-input@*" rel="stylesheet" href="https://rawgit.com/Bluefieldscom/intl-tel-input/master/build/css/intlTelInput.css" />
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-local-storage/0.5.0/angular-local-storage.js"></script>
+
+    <script data-require="intl-tel-input@*"
+            src="https://rawgit.com/Bluefieldscom/intl-tel-input/master/build/js/intlTelInput.js"></script>
+
+    <script
+            src="https://rawgit.com/mareczek/international-phone-number/master/releases/international-phone-number.js"></script>
+
+    <script src="app.js"></script>
+
+</head>
+<body>
+<div class="container" ng-controller="Main">
+<div class="row">
+    <div class="jumbotron text-center col-xs-12" id="header">
+        <h1>Générateur de Signature</h1>
+        <p class="lead">Utilise cette page Web pour générer ta signature BdE</p>
+    </div>
+
+    <div class="row marketing col-md-6" id="user">
+        <form ng-submit="generate()">
+            <div class="form-group" ng-repeat="field in fields">
+                <label for="{{field.name}}">{{field.label}}</label>
+                <input type="text" class="form-control" id="{{field.name}}" ng-model="data[field.name]" placeholder="{{field.label}}">
+            </div>
+        </form>
+    </div>
+
+    <div  class="col-md-6">
+        <div id="sign">
+            <table border="0">
+                <tr>
+                    <td style="width: 80px;">
+                        <img ng-src="{{logo}}" style="width: 75px; margin: 1ex">
+                    </td>
+                    <td style="vertical-align: middle; padding: 1ex">
+                        <div style="color: #e42612; font-size: 1.3em">
+                            <span style="text-transform: capitalize">{{data.first_name}}</span> <span style="text-transform: uppercase">{{data.last_name}}</span>
+                        </div>
+                        <div style="border-bottom: dashed 3px #e42612; padding-bottom: 1ex; margin-bottom: 1ex; min-width: 250px;">
+                            <span>{{data.role_bde}}</span>
+                        </div>
+                        <div ng-if="data.role">
+                            <span>{{data.role}}</span>
+                        </div>
+                        <div ng-if="data.phone">
+                            <span>Tél.: {{data.phone}}</span>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <pre>
+            {{as_html()}}
+        </pre>
+
+    </div>
+</div>
+
+    <footer class="footer text-center">
+        <p>&copy; 2016 BdE INSA Lyon</p>
+    </footer>
+
+</div> <!-- /container -->
+</body>
+</html>
