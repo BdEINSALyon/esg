@@ -1,5 +1,5 @@
 
-angular.module('app',['LocalStorageModule', 'internationalPhoneNumber']).controller('Main', function($scope, localStorageService){
+angular.module('app',['LocalStorageModule']).controller('Main', function($scope, localStorageService){
     $scope.fields = [
         {name: 'first_name', label: 'Prénom', example:'Guy'},
         {name: 'last_name', label: 'Nom', example:'Dumoulin'},
