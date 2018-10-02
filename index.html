@@ -55,36 +55,37 @@
         <form ng-submit="generate()">
             <div class="form-group" ng-repeat="field in fields">
                 <label for="{{field.name}}">{{field.label}}</label>
-                <input type="text" class="form-control" id="{{field.name}}" ng-model="data[field.name]" placeholder="{{field.label}}">
+                <input type="text" class="form-control" id="{{field.name}}" ng-model="data[field.name]" placeholder="{{field.example}}">
             </div>
         </form>
     </div>
 
     <div  class="col-md-6">
+		<h4>Méthode 1 : Signature à copier/coller (GMail, clients mail n'acceptant pas le code html)</h4>
+<!--		On indente pas correctement le bloc signature sinon lorsqu'il est affiché pour le copier coller de l'utilisateur, il y a trop d'identation-->
         <div id="sign">
-            <table border="0">
-                <tr>
-                    <td style="width: 80px;">
-                        <img ng-src="{{logo}}" style="width: 75px; margin: 1ex">
-                    </td>
-                    <td style="vertical-align: middle; padding: 1ex">
-                        <div style="color: #e42612; font-size: 1.3em">
-                            <span style="text-transform: capitalize">{{data.first_name}}</span> <span style="text-transform: uppercase">{{data.last_name}}</span>
-                        </div>
-                        <div style="border-bottom: dashed 3px #e42612; padding-bottom: 1ex; margin-bottom: 1ex; min-width: 250px;">
-                            <span>{{data.role_bde}}</span>
-                        </div>
-                        <div ng-if="data.role">
-                            <span>{{data.role}}</span>
-                        </div>
-                        <div ng-if="data.phone">
-                            <span>Tél.: {{data.phone}}</span>
-                        </div>
-                    </td>
-                </tr>
-            </table>
+<link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto" rel="stylesheet">
+<table border="0" cellpadding="5">
+	<tr>
+		<td><img alt="logo BdE" src="http://logos.bde-insa-lyon.fr/signature_email/BdE.svg" height="120" /></td>
+		<td>
+			<div style="font-family: 'Montserrat', sans-serif; color: #e20613; font-size: 20px; margin-left: 10px; margin-bottom: 3px;"><span style="text-transform: capitalize">{{data.first_name}}</span> <span style="text-transform: uppercase">{{data.last_name}}</span></div>
+			<div style="font-family: 'Roboto', sans-serif; color: white; font-size: 14px; margin-bottom: 6px; margin-left: 10px"><span style="background-color: #e20613; border-radius: 3px; padding-right: 5px; padding-left: 5px;">{{data.role_bde}}</span></div>
+			<div style="font-family: 'Roboto', sans-serif; color: black; font-size: 12px; margin-left: 10px; margin-bottom: 3px;">{{data.role}}</div>
+			<div style="font-family: 'Roboto', sans-serif; color: black; font-size: 12px; margin-left: 10px; margin-bottom: 7px;">Tel : {{data.phone}}</div>
+			<table width="200" border="0" cellspacing="1" cellpadding="0" style="margin-left: 10px">
+				<tr>
+					<td width="45" align="left"><a href="location.href=https://www.facebook.com/bdeinsalyon/" target="_blank"> <img alt="logo FB" src="http://logos.bde-insa-lyon.fr/signature_email/FB.svg" height="15" /></a></td>
+					<td align="left"><a href="https://www.instagram.com/bdeinsalyon/" target="_blank"><img alt="logo IG" src="http://logos.bde-insa-lyon.fr/signature_email/IG.svg" height="15" /></a></td>
+					<td align="left"><a href="https://www.youtube.com/INSALyonBdE" target="_blank"><img alt="logo YT" src="http://logos.bde-insa-lyon.fr/signature_email/YT.svg" height="15" /></a></td>
+					<td align="left"><a href="http://bde.insa-lyon.org/" target="_blank"><img alt="logo Site" src="http://logos.bde-insa-lyon.fr/signature_email/click.svg" height="15" /></a></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
         </div>
-
+		<h4>Méthode 2 : Signature code HTML (Zimbra, ...)</h4>
         <pre>
             {{as_html()}}
         </pre>
@@ -93,33 +94,9 @@
 </div>
 
     <footer class="footer text-center">
-        <p>&copy; 2016 BdE INSA Lyon</p>
+        <p>&copy; 2018 BdE INSA Lyon</p>
     </footer>
 
 </div> <!-- /container -->
 </body>
 </html>
-
-
-
-<link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto" rel="stylesheet">
-<table border="0" cellpadding="5">
-<tbody>
-<tr>
-<td><img alt="logo Raid INSA Lyon - Orange" src="https://drive.google.com/uc?export=download&id=1g8_Mir3cnUkE7bLSL5zFrqifYvWO6ETP" height="120" /></td>
-<td>
-<div class="nom" style="font-family: 'Montserrat', sans-serif; color: #eb6f24; font-size: 20px; margin-left: 2px; margin-bottom: 3px;"><span>Mathéo ATCHÉ</span></div>
-<div class="role" style="font-family: 'Roboto', sans-serif; color: white; font-size: 14px; margin-bottom: 6px;"><span style="background-color: #eb6f24; border-radius: 3px; padding-right: 5px; padding-left: 5px;">Responsable Communication </span></div>
-<div class="etude" style="font-family: 'Roboto', sans-serif; color: black; font-size: 12px; margin-left: 2px; margin-bottom: 3px;"><span>Élève ingénieur INSA Lyon - 3ème année Génie Informatique </span></div>
-<div class="tel" style="font-family: 'Roboto', sans-serif; color: black; font-size: 12px; margin-left: 2px; margin-bottom: 7px;"><span>Tel : +33 (0)6 33 52 41 27 </span></div>
-<div>
-<table width="200" border="0" cellspacing="1" cellpadding="0">
-<tbody>
-<tr>
-<td align="left"><a href="location.href=http://bde.insa-lyon.org" target="_blank"> <img alt="logo bde" src="https://drive.google.com/uc?export=download&id=1fBLIhAooEghwVin9wVflJMUFLMwVrde3" height="15" /></a></td>
-<td align="left"><a href="http://bde.insa-lyon.org" target="_blank"><img alt="logo web" src="https://drive.google.com/uc?export=download&id=1IODHBh0vNDfgobJ2N0t_rNqMqC1vmlif" height="15" /></a></td>
-<td align="left"><a href="https://www.instagram.com/raidinsalyon/" target="_blank"><img alt="logo Instagram" src="https://drive.google.com/uc?export=download&id=1hQqoMdoZcf8a5vzTVj8OJN4s3HYYkp22" height="15" /></a></td>
-<td align="left"><a href="https://www.facebook.com/raidinsalyon/" target="_blank"><img alt="logo facebook" src="https://drive.google.com/uc?export=download&id=1R3y2ib2DRa0hDN584KqorQCC-fX9oLmk" height="15" /></a></td>
-</tr>
-</tbody>
-</table>
