@@ -5,7 +5,7 @@ angular.module('app',['LocalStorageModule']).controller('Main', function($scope,
         {name: 'last_name', label: 'Nom', example:'Dumoulin'},
         {name: 'role_bde', label: 'Rôle BdE', example:'Responsable Bal INSA Lyon'},
         {name: 'role', label: 'Rôle (Etudiant, Doctorant ...)', example:'Élève ingénieur INSA Lyon - 3ème année Génie FIMI'},
-        {name: 'phone', label: 'Téléphone', example:'+33.6XXXXXXXX'}
+        {name: 'phone', label: 'Téléphone', example:'+33 (0)6XXXXXXXX'}
     ];
     $scope.data = localStorageService.get('data') || {};
     localStorageService.set('data', $scope.data);
